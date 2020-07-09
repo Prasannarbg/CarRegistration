@@ -12,8 +12,9 @@ public class WebPage {
 		public  List<String>  CarRegistationWebPage(String url, String regNo) throws InterruptedException {
 			
 			List<String> webDetail = new ArrayList<String>();
-		
-			System.setProperty("webdriver.gecko.driver","E:\\PG\\Automation\\Chrome\\geckodriver.exe");
+			
+			System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\geckodriver.exe");
+	
 			WebDriver driver = new FirefoxDriver();
 			
 			driver.get(url);
@@ -23,10 +24,11 @@ public class WebPage {
 			
 			driver.findElement(By.xpath("/html/body/div/div/div[1]/div/div/div/div/span/form/button")).click();		
 			
-			Boolean errorText;
+		 /*	Boolean errorText;
 			errorText= driver.findElement(By.xpath("/html/body/div/div/div[1]/div/div/div/div/span/form/p")).isDisplayed();
 			if (errorText) {
 			System.out.println("The Registraion is invalid"); }
+			*/
 			
 			String browserTile= driver.getTitle();		
 			System.out.println(browserTile);

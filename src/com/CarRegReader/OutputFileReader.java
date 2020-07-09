@@ -12,7 +12,6 @@ public class OutputFileReader {
 	public List<String> validateResult(String path, String checkReg) throws FileNotFoundException {
 		
 		
-//		String path= "E:\\PG\\Test\\car_output.txt";
 		List<String> outputList = new ArrayList<String>();
 	
 		String line= "";
