@@ -11,7 +11,7 @@ public class WebPage {
 	
 		public  List<String>  CarRegistationWebPage(String url, String regNo) throws InterruptedException {
 			
-			List<String> webDetail = new ArrayList<String>();
+List<String> webDetail = new ArrayList<String>();
 			
 			System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\geckodriver.exe");
 	
@@ -22,25 +22,44 @@ public class WebPage {
 	
 			Thread.sleep(2000);
 			
-		//	driver.findElement(By.xpath("/html/body/div/div/div[1]/div/div/div/div/span/form/button")).click();	
 			driver.findElement(By.xpath("//div[@id='m']/descendant-or-self::button")).click();	
-			////div[@id='m']/descendant-or-self::button
 			
-		 /*	Boolean errorText;
-			errorText= driver.findElement(By.xpath("/html/body/div/div/div[1]/div/div/div/div/span/form/p")).isDisplayed();
-			if (errorText) {
-			System.out.println("The Registration is invalid"); }
+			try {
+			  driver.findElement(By.xpath("//div[@id='m']/descendant-or-self::p[position()=1]")).getText();
+			}
+			catch(Exception e) {
+				 System.out.println(" Registration Number not identified" );	
+				 driver.close();
+				
+			}
+			
+			/*String errorStr= driver.findElement(By.xpath("//div[@id='m']/descendant-or-self::p[position()=1]")).getText();
+			 if (errorStr.contentEquals("Please provide a valid vehicle registration")) {
+			 System.out.println(" Registration Failed");	
+			 driver.close();
+			 }
 			*/
 			
 			String browserTile= driver.getTitle();		
 			System.out.println(browserTile);
 		
+			try {
+			 Boolean flag = driver.findElement(By.xpath("//div[@id='m']/descendant-or-self::dd[position()=4]")).isDisplayed();
+				
+			}
+			catch(Exception e)
+			{
+				 System.out.println(" Registration Number not identified");	
+				 driver.close();
+			}
 			
 			Thread.sleep(3000);
 			String webReg="";
 			 webReg= driver.findElement(By.xpath("//div[@id='m']/descendant-or-self::dd[position()=4]")).getText();
-			if (webReg.isBlank())
+			if (webReg.isBlank()) {
+			 System.out.println(" Vehicle Not Found ");	
 			 driver.close();	
+			}
 			webDetail.add(webReg);
 			
 			String webMake= driver.findElement(By.xpath("//div[@id='m']/descendant-or-self::dd[position()=5]")).getText();
@@ -60,7 +79,7 @@ public class WebPage {
 			driver.close();
 			
 		return webDetail;
-		/*
+			/*
 		String registration =driver.findElement(By.xpath("//dt[contains(text(),'Registration')]/../dd")).getText();
 		String make =driver.findElement(By.xpath("//dt[text()='Make']/../dd")).getText();
 		String model1 =driver.findElement(By.xpath("//dt[text()='Model']/../dd")).getText();
