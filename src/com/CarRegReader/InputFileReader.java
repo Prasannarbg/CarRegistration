@@ -15,23 +15,23 @@ public class InputFileReader {
 		String regex1= "\\w\\w\\d\\d\\w\\w\\w";
 		String regex2= "\\w\\w\\d\\d";
 		String text = "";
-		Pattern pt1,pt2; 
-		Matcher mt1,mt2 ; 
+		Pattern fullPattern,halfPattern; 
+		Matcher fullMatch,halfMatch ; 
 
 		Scanner scanRead= new Scanner(new File(fileName));
 		while(scanRead.hasNextLine()) {
 			text= scanRead.next();
-			pt1= Pattern.compile(regex1);
-			pt2= Pattern.compile(regex2);
-			mt1 = pt1.matcher(text);
-			mt2 = pt2.matcher(text);
+			fullPattern= Pattern.compile(regex1);
+			halfPattern= Pattern.compile(regex2);
+			fullMatch = fullPattern.matcher(text);
+			halfMatch = halfPattern.matcher(text);
 
-			boolean result1 = mt1.matches();
+			boolean result1 = fullMatch.matches();
 			if( result1) {	
 				saveReg.add(text);
 			}
 
-			boolean result2 = mt2.matches();
+			boolean result2 = halfMatch.matches();
 			if( result2) {
 				String fullString2 = text+scanRead.next();	
 				saveReg.add(fullString2);

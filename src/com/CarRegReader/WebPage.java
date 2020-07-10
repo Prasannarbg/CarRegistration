@@ -27,7 +27,7 @@ public class WebPage {
 		 /*	Boolean errorText;
 			errorText= driver.findElement(By.xpath("/html/body/div/div/div[1]/div/div/div/div/span/form/p")).isDisplayed();
 			if (errorText) {
-			System.out.println("The Registraion is invalid"); }
+			System.out.println("The Registration is invalid"); }
 			*/
 			
 			String browserTile= driver.getTitle();		
@@ -72,6 +72,16 @@ public class WebPage {
 			System.out.println(year);
 			
 			*/						
+		}
+		
+		public String compareContents(String first, String second)
+		{
+			String comparaison="";
+			if (first.equalsIgnoreCase(second))
+				comparaison= " Web content and File content are same for " + first;
+			else
+				comparaison= " Web content and File Content are different : " + first;
+			return comparaison;
 		}
 
 }
