@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Reporter;
 
 public class WebPage {
 	
@@ -27,8 +28,9 @@ List<String> webDetail = new ArrayList<String>();
 			try {
 			  driver.findElement(By.xpath("//div[@id='m']/descendant-or-self::p[position()=1]")).getText();
 			}
-			catch(Exception e) {
+			catch(Error e) {
 				 System.out.println(" Registration Number not identified" );	
+				 Reporter.log("Error"+ e.getLocalizedMessage() );
 				 driver.close();
 				
 			}
@@ -47,9 +49,10 @@ List<String> webDetail = new ArrayList<String>();
 			 Boolean flag = driver.findElement(By.xpath("//div[@id='m']/descendant-or-self::dd[position()=4]")).isDisplayed();
 				
 			}
-			catch(Exception e)
+			catch(Error e)
 			{
 				 System.out.println(" Registration Number not identified");	
+				 Reporter.log("Error"+ e.getLocalizedMessage() );
 				 driver.close();
 			}
 			

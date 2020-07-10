@@ -1,5 +1,6 @@
 package com.CarRegReader;
 
+import org.testng.annotations.Test;
 import java.io.FileNotFoundException;
 import java.util.List;
 
