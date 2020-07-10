@@ -24,7 +24,7 @@ public class OutputFileReader {
 				String[] values = line.split(",");
 				 reg=values[0];
 				 boolean flag = reg.equalsIgnoreCase(checkReg);
-			//	 System.out.println(flag);
+			
 				if ( flag)
 				{
 				outputList.add(values[0]);

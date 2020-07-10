@@ -74,13 +74,13 @@ public class WebPage {
 			*/						
 		}
 		
-		public String compareContents(String first, String second)
+		public String compareContents(String fileString, String webString)
 		{
 			String comparaison="";
-			if (first.equalsIgnoreCase(second))
-				comparaison= " Web content and File content are same for " + first;
+			if (fileString.equalsIgnoreCase(webString))
+				comparaison= " Web content and File content are same for " + fileString;
 			else
-				comparaison= " Web content and File Content are different : " + first;
+				comparaison= " Web content and File Content are different : " + fileString;
 			return comparaison;
 		}
 
