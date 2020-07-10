@@ -22,7 +22,7 @@ public class PatternCheck {
 			  
 		
 		
-		 for (int i=1;i<regNumberList.size();i++) {
+		 for (int i=0;i<regNumberList.size();i++) {
 			 registrationNumber =regNumberList.get(i).substring(0, 7);
 			 regbreak=registrationNumber;
 			
